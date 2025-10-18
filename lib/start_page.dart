@@ -76,7 +76,6 @@ class StartPage extends StatelessWidget {
                 Icon(Icons.album_rounded, color: Colors.red, size: 20),
 
                 Spacer(),
-
                 // ✅ Next Button with Navigator
                 GestureDetector(
                   onTap: () {
