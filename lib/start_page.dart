@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'Authentication_Screen/sign_in.dart';
 import 'homepage.dart';
 
 class StartPage extends StatelessWidget {
@@ -81,7 +82,7 @@ class StartPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Homepage()),
+                      MaterialPageRoute(builder: (context) => SignIn()),
                     );
                   },
                   child: Container(
