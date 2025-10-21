@@ -1,5 +1,7 @@
+import 'package:car_parking_project/Splash_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'Authentication_Screen/login_screen.dart';
 import 'homepage.dart';
 
 void main(){
@@ -13,8 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+     // home: SplashScreen(),
 
+      home: LoginScreen(),
     );
   }
 }
