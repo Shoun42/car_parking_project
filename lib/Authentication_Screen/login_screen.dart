@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'forget_password.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,80 +12,108 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(height: 20,),
+            const SizedBox(height: 20),
             Form(
-
               child: Column(
                 children: [
-
                   Image.asset("logo.png"),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.email),
                       hintText: "sagor@gmail.com",
                       suffixIcon: Icon(Icons.check_box),
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Colors.indigo,
-                          width: 2,
-                        ),
-                      ),
-
+                      border: OutlineInputBorder(),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white, width: 2),
                       ),
                     ),
                   ),
+                  const SizedBox(height: 10),
                   TextFormField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.password),
-                      hintText: "password",
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
+                      hintText: "Password",
                       suffixIcon: Icon(Icons.remove_red_eye_outlined),
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Colors.white60,
-                          width: 100,
-                        ),
-                      ),
-
+                      border: OutlineInputBorder(),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white, width: 2),
                       ),
                     ),
                   ),
+                  const SizedBox(height: 20),
 
-                  SizedBox(height: 10),
-                  Container(
-                    height: 45,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.red,
+                  // Sign In Button
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ForgetPassword()),
+                      );
+                    },
+                    child: Container(
+                      height: 45,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.red,
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Sign In",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      ),
                     ),
+                  ),
 
-                    child: Center(
-                      child: Text(
-                        "Sign In",
+                  const SizedBox(height: 10),
+
+                  // Forget Password
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ForgetPassword()),
+                        );
+                      },
+                      child: const Text(
+                        "Forget Password?",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
-
-                  SizedBox(height: 10,),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Text("Forget Password",style: TextStyle(color: Colors.white),),
-                  ),
-
                 ],
               ),
             ),
+
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have accound?",style: TextStyle(color:Colors.white),),
-                Text("Sign Up",style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold),),
+                const Text(
+                  "Don't have account? ",
+                  style: TextStyle(color: Colors.white),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ForgetPassword()),
+                    );
+                  },
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
               ],
             )
           ],
