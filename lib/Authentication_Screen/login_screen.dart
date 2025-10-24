@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'forget_password.dart';
+import 'forget_password_otp.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
