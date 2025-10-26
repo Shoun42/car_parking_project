@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
+import 'success.dart';
 import 'verify_screen.dart';
 
 class SingUp extends StatefulWidget {

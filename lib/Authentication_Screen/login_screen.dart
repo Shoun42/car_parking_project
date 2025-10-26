@@ -1,5 +1,7 @@
+import 'package:car_parking_project/Authentication_Screen/forget_email.dart';
 import 'package:flutter/material.dart';
 import 'forget_password_otp.dart';
+import 'sing_up.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -49,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const ForgetPassword()),
+                        MaterialPageRoute(builder: (context) => const SingUp()),
                       );
                     },
                     child: Container(
@@ -77,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const ForgetPassword()),
+                          MaterialPageRoute(builder: (context) => const ForgetEmail()),
                         );
                       },
                       child: const Text(
@@ -102,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const ForgetPassword()),
+                      MaterialPageRoute(builder: (context) => const SingUp()),
                     );
                   },
                   child: const Text(
