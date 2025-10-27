@@ -1,3 +1,4 @@
+import 'package:car_parking_project/Authentication_Screen/parking_sport.dart';
 import 'package:car_parking_project/Authentication_Screen/success.dart';
 import 'package:flutter/material.dart';
 
@@ -64,7 +65,7 @@ class VerifyScreen extends StatelessWidget {
               ),
 
               InkWell(
-                onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context)=>Success())),
+                onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context)=>ParkingSport())),
                 child: Container(
                   height: 45,
                   width: double.infinity,
