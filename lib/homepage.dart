@@ -25,7 +25,7 @@ class Homepage extends StatelessWidget {
 
           // Image
           Center(
-            child: Image.asset('assets/pic_one.png'),
+            child: Image.asset('assets/home_logo.png'),
           ),
 
           SizedBox(height: 10),
