@@ -120,7 +120,7 @@ class _Homepage1State extends State<Homepage1> {
             const SizedBox(height: 20),
             Container(
               width: 500,
-              child: Image.asset("Assert/map.png", fit: BoxFit.contain),
+              child: Image.asset("Assert/home_logo.png", fit: BoxFit.contain),
             ),
             const SizedBox(height: 20),
             Row(
@@ -166,7 +166,7 @@ class _Homepage1State extends State<Homepage1> {
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8),
-                              child: Image.asset("Assert/leading.png"),
+                              child: Image.asset("Assert/home_logo.png"),
                             ),
                             const SizedBox(width: 10),
                             Expanded(
