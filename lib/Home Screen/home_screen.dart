@@ -117,9 +117,9 @@ class HomeScreen extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
-                                "assets/parking.png", // Corrected path
-                                width: 90,
-                                height: 90,
+                                "assets/park_save_zone.png", // Corrected path
+                                width: 60,
+                                height:60,
                                 fit: BoxFit.cover,
                               ),
                             ),
