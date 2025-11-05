@@ -1,57 +1,39 @@
-import 'package:car_parking_project/Authentication_Screen/parking_sport.dart';
 import 'package:flutter/material.dart';
-class Homepage1 extends StatefulWidget {
-  const Homepage1({super.key});
 
-  @override
-  State<Homepage1> createState() => _Homepage1State();
-}
-
-class _Homepage1State extends State<Homepage1> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1C2B4A),
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1C2B4A),
+        backgroundColor: Colors.indigo,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            // ✅ Left side: Profile info
             Row(
               children: [
-                const CircleAvatar(),
-                const SizedBox(width: 15),
+                const CircleAvatar(
+                  radius: 18,
+                  backgroundImage: AssetImage('assets/leading.png'),
+                ),
+                const SizedBox(width: 8),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "Sabbir Ahmed",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  children: const [
+                    Text(
+                      "Sabbir Ahamed",
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 2),
                     Row(
-                      children: const [
-                        Icon(Icons.location_on, color: Colors.white, size: 16),
+                      children: [
+                        Icon(Icons.location_on_outlined, size: 14, color: Colors.white70),
                         SizedBox(width: 4),
                         Text(
                           "Bangladesh",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: TextStyle(fontSize: 12, color: Colors.white70),
                         ),
                       ],
                     ),
@@ -59,92 +41,59 @@ class _Homepage1State extends State<Homepage1> {
                 ),
               ],
             ),
+
+            // ✅ Right side: Notification + Sort icons
             Row(
-              children: [
-                const CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Icon(Icons.notification_add, color: Colors.black),
-                ),
-                const SizedBox(width: 10),
-                const CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Icon(Icons.segment_rounded, color: Colors.black),
-                ),
+              children: const [
+                Icon(Icons.notifications_none_outlined, color: Colors.white),
+                SizedBox(width: 12),
+                Icon(Icons.sort, color: Colors.white),
               ],
             ),
           ],
         ),
       ),
+
+      // ✅ Body section
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
-            // তোমার আগের body কনটেন্ট অপরিবর্তিত থাকলো
+            // 🔹 Top Row (Title + Sort Button)
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
                   "Explore Parking Spots on the Map",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                 ),
-                PopupMenuButton<int>(
-                  color: Colors.white,
-                  onSelected: (value) {
-                    if (value == 1) {
-                      print("Short by name");
-                    } else if (value == 2) {
-                      print("Short by price");
-                    }
-                  },
-                  itemBuilder: (context) => const [
-                    PopupMenuItem(value: 1, child: Text("Short by Name")),
-                    PopupMenuItem(value: 2, child: Text("Short by Price")),
-                  ],
-                  child: const Row(
-                    children: [
-                      Text(
-                        "Short",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                      SizedBox(width: 10),
-                      Icon(Icons.sort, color: Colors.white),
+                Container(
+                  height: 35,
+                  width: 70,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 2,
+                        offset: Offset(0, 2),
+                      )
                     ],
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Container(
-              width: 500,
-              child: Image.asset("Assert/home_logo.png", fit: BoxFit.contain),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
-                  "Parking Around You",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-                Text(
-                  "See All",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                  child: const Center(
+                    child: Text(
+                      "Sort",
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 15),
+
+            const SizedBox(height: 10),
+
+            // 🔹 List Section
             Expanded(
               child: ListView.builder(
                 itemCount: 5,
@@ -164,18 +113,27 @@ class _Homepage1State extends State<Homepage1> {
                         ),
                         child: Row(
                           children: [
+                            // ✅ Parking Image
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8),
-                              child: Image.asset("Assert/home_logo.png"),
+                              child: Image.asset(
+                                "assets/parking.png", // Corrected path
+                                width: 90,
+                                height: 90,
+                                fit: BoxFit.cover,
+                              ),
                             ),
+
                             const SizedBox(width: 10),
+
+                            // ✅ Parking Info
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  // Parking Name + Favorite Icon
                                   Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         'Park Safe Zone ${index + 1}',
@@ -191,8 +149,10 @@ class _Homepage1State extends State<Homepage1> {
                                     ],
                                   ),
                                   const SizedBox(height: 5),
-                                  Row(
-                                    children: const [
+
+                                  // Location
+                                  const Row(
+                                    children: [
                                       Icon(
                                         Icons.location_on_outlined,
                                         size: 16,
@@ -209,8 +169,10 @@ class _Homepage1State extends State<Homepage1> {
                                     ],
                                   ),
                                   const SizedBox(height: 5),
-                                  Row(
-                                    children: const [
+
+                                  // Available Slot
+                                  const Row(
+                                    children: [
                                       Icon(
                                         Icons.local_parking,
                                         size: 16,
@@ -227,9 +189,10 @@ class _Homepage1State extends State<Homepage1> {
                                     ],
                                   ),
                                   const SizedBox(height: 8),
+
+                                  // Price + Rating Box
                                   Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       const Text(
                                         'Price: \$25/Day',
@@ -244,28 +207,23 @@ class _Homepage1State extends State<Homepage1> {
                                         ),
                                         decoration: BoxDecoration(
                                           color: Colors.redAccent,
-                                          borderRadius: BorderRadius.circular(
-                                            6,
-                                          ),
+                                          borderRadius: BorderRadius.circular(6),
                                         ),
-                                        child: InkWell(
-                                          onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context)=>ParkingSport())),
-                                          child: Row(
-                                            children: const [
-                                              Text(
-                                                '4.4',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                              SizedBox(width: 3),
-                                              Icon(
-                                                Icons.star,
+                                        child: Row(
+                                          children: const [
+                                            Text(
+                                              '4.4',
+                                              style: TextStyle(
                                                 color: Colors.white,
-                                                size: 14,
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                            SizedBox(width: 3),
+                                            Icon(
+                                              Icons.star,
+                                              color: Colors.white,
+                                              size: 14,
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -284,39 +242,6 @@ class _Homepage1State extends State<Homepage1> {
           ],
         ),
       ),
-
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFF1C2B4A),
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        selectedItemColor: Colors.amber, // নির্বাচিত আইটেমের রঙ
-        unselectedItemColor: Colors.white70, // অনির্বাচিত আইটেমের রঙ
-        selectedLabelStyle: const TextStyle(
-          color: Colors.amber,
-          fontWeight: FontWeight.bold,
-        ),
-        unselectedLabelStyle: const TextStyle(color: Colors.white70),
-        type: BottomNavigationBarType.fixed, // ৪ বা তার বেশি আইটেম থাকলে এটা দরকার
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.receipt_rounded),
-            label: "My Reservation",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: "Favorites",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
-      ),
-
     );
   }
 }
