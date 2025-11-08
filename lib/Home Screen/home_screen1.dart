@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../Favorite/favorite_page.dart';
+import '../profile/profile.dart';
 import 'Filter2.dart';
 import 'only_map3.dart';
-import 'parking_details5.dart'; // ✅ Parking Details পেজ ইমপোর্ট করো
+import 'parking_details5.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -44,15 +46,13 @@ class HomeScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                const Icon(
-                    Icons.notifications_none_outlined, color: Colors.white),
+                const Icon(Icons.notifications_none_outlined, color: Colors.white),
                 const SizedBox(width: 12),
                 InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const ParkingFilterWidget()),
+                      MaterialPageRoute(builder: (context) => const ParkingFilterWidget()),
                     );
                   },
                   child: const Icon(Icons.sort, color: Colors.white),
@@ -62,11 +62,11 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
+            // Explore Parking Text + Sort Button
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -80,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.black12,
                         blurRadius: 2,
@@ -99,6 +99,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
 
+            // Map Preview
             InkWell(
               onTap: () {
                 Navigator.push(
@@ -140,18 +141,16 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
 
-            // 🔹 Park Card List
+            // Parking Cards
             Expanded(
               child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      // ✅ ক্লিক করলে ParkingDetails5 পেজে যাবে
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const ParkingDetails5()),
+                        MaterialPageRoute(builder: (context) => const ParkingDetails5()),
                       );
                     },
                     child: Padding(
@@ -184,8 +183,7 @@ class HomeScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment
-                                          .spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           'Park Safe Zone ${index + 1}',
@@ -230,8 +228,7 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                     const SizedBox(height: 8),
                                     Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         const Text(
                                           'Price: \$25/Day',
@@ -245,20 +242,17 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                           decoration: BoxDecoration(
                                             color: Colors.redAccent,
-                                            borderRadius:
-                                            BorderRadius.circular(6),
+                                            borderRadius: BorderRadius.circular(6),
                                           ),
                                           child: Row(
                                             children: const [
                                               Text(
                                                 '4.4',
-                                                style: TextStyle(
-                                                    color: Colors.white),
+                                                style: TextStyle(color: Colors.white),
                                               ),
                                               SizedBox(width: 3),
                                               Icon(Icons.star,
-                                                  color: Colors.white,
-                                                  size: 14),
+                                                  color: Colors.white, size: 14),
                                             ],
                                           ),
                                         ),
@@ -279,7 +273,7 @@ class HomeScreen extends StatelessWidget {
 
             const SizedBox(height: 10),
 
-            // 🔹 Bottom Icon Row
+            // 🔹 Bottom Icon Row (Favorite বাটন ক্লিকেবল)
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -291,23 +285,41 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Column(
                   children: const [
-                    Icon(Icons.calendar_month_outlined,
-                        color: Colors.indigo, size: 28),
+                    Icon(Icons.calendar_month_outlined, color: Colors.indigo, size: 28),
                     Text("MY Reservation", style: TextStyle(fontSize: 12)),
                   ],
                 ),
-                Column(
-                  children: const [
-                    Icon(Icons.favorite_border, color: Colors.indigo, size: 28),
-                    Text("Favorite", style: TextStyle(fontSize: 12)),
-                  ],
+                // ✅ Favorite Icon with onTap
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  FavoriteScreen()),
+                    );
+                  },
+                  child: Column(
+                    children: const [
+                      Icon(Icons.favorite, color: Colors.indigo, size: 28),
+                      Text("Favorite", style: TextStyle(fontSize: 12)),
+                    ],
+                  ),
                 ),
-                Column(
-                  children: const [
-                    Icon(Icons.account_circle_outlined,
-                        color: Colors.indigo, size: 28),
-                    Text("Profile", style: TextStyle(fontSize: 12)),
-                  ],
+
+
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen()),);
+                  },
+                  child: Column(
+                    children: const [
+                      Icon(Icons.account_circle_outlined, color: Colors.indigo, size: 28),
+                      Text("Profile", style: TextStyle(fontSize: 12),
+
+                      ),
+
+
+                    ],
+                  ),
                 ),
               ],
             ),
