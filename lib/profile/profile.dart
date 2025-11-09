@@ -1,4 +1,5 @@
-import 'package:car_parking_project/screens/profile/profile_page_two.dart';
+import 'package:car_parking_project/profile/profile_page_two.dart';
+
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {

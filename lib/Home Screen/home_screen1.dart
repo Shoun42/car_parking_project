@@ -308,7 +308,7 @@ class HomeScreen extends StatelessWidget {
 
                 InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen()),);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()),);
                   },
                   child: Column(
                     children: const [
