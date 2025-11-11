@@ -62,7 +62,7 @@ class SecondPage extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 260),
+          SizedBox(height: 240),
 
           // Row with icons and Next button
           Padding(
@@ -88,7 +88,7 @@ class SecondPage extends StatelessWidget {
                   },
                   child: Container(
                     height: 40,
-                    width: 100,
+                    width: 80,
                     decoration: BoxDecoration(
                       color: Colors.red,
                       borderRadius: BorderRadius.circular(8),

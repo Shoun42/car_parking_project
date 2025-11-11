@@ -1,4 +1,3 @@
-import 'package:car_parking_project/Authentication_Screen/forget_password_otp.dart';
 import 'package:flutter/material.dart';
 import 'homepage.dart'; // 🟡 তোমার HomePage ফাইল যেখানে আছে, সেই path টা ঠিক করে দাও
 
@@ -14,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // ৪ সেকেন্ড পর HomePage এ যাবে
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const Homepage()),
@@ -27,7 +26,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.indigo.shade700,
       body: Center(
-        child: Image.asset("logo.png"), // 🖼️ অ্যাসেট ফাইলের নাম ঠিক করো
+        child: Image.asset("assets/logo.png"),
+        // 🖼️ অ্যাসেট ফাইলের নাম ঠিক করো
       ),
     );
   }
