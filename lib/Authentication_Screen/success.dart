@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Home Screen/home_screen1.dart';
 
 class Success extends StatelessWidget {
   const Success({super.key});
@@ -6,9 +7,7 @@ class Success extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.indigo.shade700,
-      ),
+      appBar: AppBar(backgroundColor: Colors.indigo.shade700),
       backgroundColor: Colors.indigo.shade700,
       body: Center(
         child: Padding(
@@ -21,9 +20,10 @@ class Success extends StatelessWidget {
               const Text(
                 "Thanks for signing up!",
                 style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(height: 10),
               const Text(
@@ -33,7 +33,12 @@ class Success extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
+                },
                 child: Container(
                   height: 45,
                   width: double.infinity,
@@ -55,11 +60,4 @@ class Success extends StatelessWidget {
       ),
     );
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Success(),
-  ));
 }
